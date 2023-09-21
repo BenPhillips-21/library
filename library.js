@@ -49,14 +49,23 @@ document.addEventListener("DOMContentLoaded", function() {
     const libraryList = document.getElementById("libraryList");
     const objectItem = document.createElement("div");
     const button = document.createElement("button");
+    const readButton = document.createElement("button")
     button.textContent = 'Remove Book'
     button.onclick = () => {
         objectItem.remove()
         button.remove()
+        readButton.remove()
     }
+    readButton.textContent = 'Change Read Status'
     objectItem.textContent = `title: ${newBook.title}, author: ${newBook.author}, pages: ${newBook.pages}, read: ${newBook.read}`;
+    readButton.onclick = () => {
+        console.log('Read Status Changed')
+        newBook.read = newBook.read === "read" ? "not read yet" : "read";
+        objectItem.textContent = `title: ${newBook.title}, author: ${newBook.author}, pages: ${newBook.pages}, read: ${newBook.read}`;
+    }
     libraryList.appendChild(objectItem);
     libraryList.appendChild(button);
+    libraryList.appendChild(readButton)
     myLibrary.push(objectItem)
     console.log(myLibrary)
 
