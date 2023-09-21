@@ -48,8 +48,17 @@ document.addEventListener("DOMContentLoaded", function() {
     // Display the object in a list
     const libraryList = document.getElementById("libraryList");
     const objectItem = document.createElement("div");
+    const button = document.createElement("button");
+    button.textContent = 'Remove Book'
+    button.onclick = () => {
+        objectItem.remove()
+        button.remove()
+    }
     objectItem.textContent = `title: ${newBook.title}, author: ${newBook.author}, pages: ${newBook.pages}, read: ${newBook.read}`;
     libraryList.appendChild(objectItem);
+    libraryList.appendChild(button);
+    myLibrary.push(objectItem)
+    console.log(myLibrary)
 
     // Clear the form inputs
     titleInput.value = "";
