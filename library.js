@@ -1,13 +1,13 @@
 const myLibrary = []
 
-function Book(title, author, pages, read) {
+class Book {
+    constructor(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read ? "read" : "not read yet"
-    this.info = function() {
-        console.log(`${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`)
     }
+    info() { console.log(`${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`) }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
