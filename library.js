@@ -15,17 +15,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const libraryFormContainer = document.getElementById("libraryFormContainer");
     const closeFormButton = document.getElementById("closeFormButton");
 
-    // Show the form when the button is clicked
     showFormButton.addEventListener("click", function() {
         libraryFormContainer.classList.remove("hidden");
     });
 
-    // Hide the form when the "Close Form" button is clicked
     closeFormButton.addEventListener("click", function() {
         libraryFormContainer.classList.add("hidden");
     });
 
-    // Optionally, prevent the form from submitting and add your form submission logic here
     const libraryForm = document.getElementById("libraryForm");
 
     libraryForm.addEventListener("submit", function(event) 
@@ -33,7 +30,19 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault();
          // Get user input
     const titleInput = document.getElementById("title");
+    if (titleInput.value.length < 5) {
+        alert('Title must be longer than 5 characters')
+        return
+    } 
     const authorInput = document.getElementById("author");
+    if (authorInput.value.length < 5) {
+        alert('Author must be longer than 5 characters')
+        return
+    }
+    if (!isNaN(authorInput.value)) {
+      alert("Author cannot be a number");
+      return;
+    }
     const pagesInput = document.getElementById("pages");
     const readInput = document.getElementById("read");
 
